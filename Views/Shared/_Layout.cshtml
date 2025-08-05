@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - DBFirstDay2</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/DBFirstDay2.styles.css" asp-append-version="true" />
+    <style>
+        /* Custom Navbar Styling */
+        .navbar-custom {
+            background: linear-gradient(45deg, #007bff, #00c6ff);
+        }
+
+        .navbar-brand, .nav-link, .dropdown-item {
+            color: white !important;
+            font-weight: 500;
+        }
+
+        .dropdown-menu {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .dropdown-item {
+            color: #333 !important;
+            transition: background 0.2s ease-in-out;
+        }
+
+            .dropdown-item:hover {
+                background-color: #007bff;
+                color: white !important;
+            }
+
+        footer {
+            background: #f8f9fa;
+            padding: 15px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        main {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-custom shadow">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">DBFirstDay2</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+
+                        <!-- Passengers Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#" id="passengerDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Passengers
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="passengerDropdown">
+                                <li><a class="dropdown-item" asp-controller="Passengers" asp-action="Index">Passenger Details</a></li>
+                                <li><a class="dropdown-item" asp-controller="Passengers" asp-action="Create">Create Passenger</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Tickets Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#" id="ticketDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Tickets
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="ticketDropdown">
+                                <li><a class="dropdown-item" asp-controller="Tickets" asp-action="Index">Ticket Details</a></li>
+                                <li><a class="dropdown-item" asp-controller="Tickets" asp-action="Create">Create Ticket</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2025 - DBFirstDay2 | <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
